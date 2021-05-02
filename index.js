@@ -1,5 +1,5 @@
 const app = require("express")();
-const PORT = 8080;
+const PORT = 80;
 
 app.listen(PORT, () => {
   console.log(`It's alive on http://localhost:${PORT}`);
