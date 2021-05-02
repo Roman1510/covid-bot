@@ -1,13 +1,26 @@
-const app = require("express")();
-const PORT = 80;
+var express = require('express');
+var app = express();
+var path = require('path');
 
-app.listen(PORT, () => {
-  console.log(`It's alive on http://localhost:${PORT}`);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/json', function(req, res) {
+    console.log("GET the json");
+    res
+        .status(200)
+        .json( {"jsonData" : true} );
 });
 
-app.get('/getStatus',(req,res)=>{
-    res.status(200).send({
-        status: '1',
-        statusCode: 'Success'
-    })
-})
+app.get('/file', function(req, res) {
+    console.log("GET the file");
+    res
+        .status(200)
+        .sendFile(path.join(__dirname, 'test.txt'));
+});
+
+
+const server = app.listen(process.env.PORT || 5000, () => {
+  const port = server.address().port;
+  console.log(`Express is working on port ${port}`);
+});
