@@ -1,4 +1,4 @@
-import { Telegraf } from 'telegraf'
+const {Telegraf} = require('telegraf');
 const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
@@ -38,9 +38,12 @@ const server = app.listen(process.env.PORT || 5000, () => {
 //everything about bot starts here:
 //----------------------------------------------------------------------------------------------------------------
 const bot = new Telegraf(token)
-
+bot.start((ctx) => ctx.reply('/салам\n/help\n или просто напиши hi'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.hears('/салам', (ctx) => ctx.reply('👍 алейкум'+JSON.stringify(ctx.message)))
 bot.hears('hi', (ctx) => ctx.reply('Hey there'))
 bot.launch()
 
-bot.launch()
-
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
