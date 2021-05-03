@@ -12,7 +12,16 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 	const chatId = msg.chat.id
 	const resp = match[1]
   
+  
 	bot.sendMessage(chatId, resp)
+})
+bot.onText(/\/хуй (.+)/, (msg, match) => {
+
+	const chatId = msg.chat.id
+	// const resp = match[1]
+  
+  
+	bot.sendMessage(chatId, 'ПОШЁЛ НАХУЙ, ДОЛБАЕБ ИЗ КЗ')
 })
 
 app.use(express.static(path.join(__dirname, 'public')));
