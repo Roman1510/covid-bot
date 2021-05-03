@@ -15,7 +15,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   
 	bot.sendMessage(chatId, resp)
 })
-bot.onText(/\/хуй (.+)/, (msg, match) => {
+bot.onText(/\/hui (.+)/, (msg, match) => {
 
 	const chatId = msg.chat.id
 	// const resp = match[1]
