@@ -5,7 +5,7 @@ const path = require("path");
 const covidApi = require("covid19-api");
 
 //const app = express(); yet to be used
-const token = "1778739993:AAGEOJzxf8uULadGkTBZ2oVmS1VM0B7sRpM";
+const token = "1796374675:AAGaC0athyS7ofoDN8VtZunl_fHuxGL5JwA";
 
 
 const bot = new Telegraf(token);
