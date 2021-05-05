@@ -1,15 +1,8 @@
 const { Telegraf } = require("telegraf");
 const covidApi = require("covid19-api");
+const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
-<<<<<<< HEAD
-const token = "1778739993:AAGEOJzxf8uULadGkTBZ2oVmS1VM0B7sRpM";
-=======
-app.get("/", (req, res) => {
-  return res.send("Received a GET HTTP method");
-});
->>>>>>> 29bed9e2d30c44a5092b89c97b8c42ef0e51f2f4
 
 app.post("/", (req, res) => {
   return res.send("Received a POST HTTP method");
