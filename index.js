@@ -1,10 +1,6 @@
 const { Telegraf } = require("telegraf");
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
 const covidApi = require("covid19-api");
 
-//const app = express(); yet to be used
 const token = "1778739993:AAGEOJzxf8uULadGkTBZ2oVmS1VM0B7sRpM";
 
 
