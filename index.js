@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const covidApi = require("covid19-api");
-const port = "80";
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", (req, res) => {
@@ -22,7 +22,7 @@ app.delete("/", (req, res) => {
   return res.send("Received a DELETE HTTP method");
 });
 
-app.listen(port, () =>
+app.listen(PORT, () =>
   console.log(`Example app listening on port ${process.env.PORT}!`)
 );
 
