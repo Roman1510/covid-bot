@@ -39,9 +39,5 @@ bot.on("text", async (ctx) => {
     ctx.reply("This country doesn't exist, please use  /help");
   }
 });
-bot.hears('/help',ctx=>{
-  return ctr.reply(`
-    just put the name of the country and that's it
-  `)
-})
+bot.command('oldschool', (ctx) => ctx.reply('Please just message me the name of the country, for example: us, germany, china etc...'))
 bot.launch();
