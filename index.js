@@ -17,7 +17,7 @@ app.delete("/", (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`Example app listening on port ${process.env.PORT}!`)
+  console.log(`Example app listening on port ${PORT}}!`)
 );
 
 const token = "1796374675:AAGaC0athyS7ofoDN8VtZunl_fHuxGL5JwA";
@@ -26,7 +26,6 @@ bot.on("text", async (ctx) => {
   try {
     const userText = ctx.message.text;
     const covidData = await covidApi.getReportsByCountries(userText);
-    console.log(covidData);
     const countryData = covidData[0][0];
     const formatData = `
           Country: ${countryData.country},
@@ -40,4 +39,9 @@ bot.on("text", async (ctx) => {
     ctx.reply("This country doesn't exist, please use  /help");
   }
 });
+bot.hears('/help',ctx=>{
+  ctr.reply(`
+    just put the name of the country and that's it
+  `)
+})
 bot.launch();
