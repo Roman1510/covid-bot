@@ -40,7 +40,7 @@ bot.on("text", async (ctx) => {
   }
 });
 bot.hears('/help',ctx=>{
-  ctr.reply(`
+  return ctr.reply(`
     just put the name of the country and that's it
   `)
 })
