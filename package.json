@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Roman1510/currency-bot#readme",
   "dependencies": {
     "covid19-api": "1.2.1",
+    "dotenv": "^9.0.1",
     "express": "^4.17.1",
     "node-telegram-bot-api": "^0.53.0",
     "telegraf": "^4.3.0"

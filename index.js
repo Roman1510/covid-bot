@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Telegraf } = require("telegraf");
 const covidApi = require("covid19-api");
 const express = require("express");
@@ -13,8 +14,7 @@ app.put("/", (req, res) => {
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}}!`));
 
 //here it starts the Telegram-API
-
-const token = "1796374675:AAGaC0athyS7ofoDN8VtZunl_fHuxGL5JwA";
+const token = process.env.API_KEY;
 const bot = new Telegraf(token);
 bot.on("text", async (ctx) => {
   try {
