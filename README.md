@@ -1,2 +1,1 @@
-# currency-bot
-# currency-bot
+# covid-bot
