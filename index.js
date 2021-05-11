@@ -13,6 +13,10 @@ app.put("/", (req, res) => {
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}}!`));
 
 const bot = new TelegramApi(token, { polling: true });
+bot.setMyCommands([
+  {command:'/start',description:'Initializing'},
+  {command:'/info',description:'Info'}
+])
 bot.on("message", async (msg) => {
   const text = msg.text;
   const chatId = msg.chat.id;
@@ -33,7 +37,7 @@ bot.on("message", async (msg) => {
       `You are ${msg.chat.first_name} ${msg.chat.last_name || ""}`
     );
   }
-  if (text) {
+  if (text!=="/start"&&text!="/info") { //if text is not a command, this is a country
     try {
       const covidData = await covidApi.getReportsByCountries(text);
       const countryData = covidData[0][0];
