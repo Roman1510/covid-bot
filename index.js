@@ -5,6 +5,9 @@ const covidApi = require("covid19-api");
 const express = require("express");
 const PORT = process.env.PORT || 3000;
 const app = express();
+//just have to implement the flags emoji, and the bot is complete
+
+
 
 //this is just the code to keep the server alive
 app.put("/", (req, res) => {
@@ -17,6 +20,9 @@ bot.setMyCommands([
   {command:'/start',description:'Initializing'},
   {command:'/info',description:'Info'}
 ])
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 bot.on("message", async (msg) => {
   const text = msg.text;
   const chatId = msg.chat.id;
@@ -28,13 +34,13 @@ bot.on("message", async (msg) => {
     );
     await bot.sendMessage(
       chatId,
-      "Welcome to covid19 monitoring bot, just type the country name. For example us, poland, germany etc."
+      `Welcome to covid19 monitoring bot, just type the country name. For example: US, Poland, Germany etc.`
     );
   }
   if (text === "/info") {
     await bot.sendMessage(
       chatId,
-      `You are ${msg.chat.first_name} ${msg.chat.last_name || ""}`
+      `${msg.chat.first_name} ${msg.chat.last_name || ""} just type the name of any country :)`
     );
   }
   if (text!=="/start"&&text!="/info") { //if text is not a command, this is a country
@@ -43,9 +49,9 @@ bot.on("message", async (msg) => {
       const countryData = covidData[0][0];
       const formatData = `
             Country: ${countryData.country},
-            Cases: ${countryData.cases},
-            Deaths: ${countryData.deaths},
-            Cured: ${countryData.recovered}
+            Cases: ${numberWithCommas(countryData.cases)},
+            Deaths: ${numberWithCommas(countryData.deaths)},
+            Cured: ${numberWithCommas(countryData.recovered)}
             ${countryData.flag}`;
       await bot.sendMessage(chatId, formatData)  
     } catch(e) {
