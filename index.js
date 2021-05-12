@@ -49,8 +49,8 @@ bot.on("message", async (msg) => {
       const countryData = covidData[0][0];
       const formatData = `
             Country: ${countryData.country},
-            Cases: ${numberWithCommas(countryData.cases)},
-            Deaths: ${numberWithCommas(countryData.deaths)},
+            Cases: ${numberWithCommas(countryData.cases)}
+            Deaths: ${numberWithCommas(countryData.deaths)}
             Cured: ${numberWithCommas(countryData.recovered)}
             ${countryData.flag}`;
       await bot.sendMessage(chatId, formatData)  
