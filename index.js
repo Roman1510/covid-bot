@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 //just have to implement the flags emoji, and the bot is complete
 
-
-
 //this is just the code to keep the server alive
 app.put("/", (req, res) => {
   return res.send("Received a PUT HTTP method");
