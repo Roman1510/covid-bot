@@ -46,9 +46,9 @@ bot.on("message", async (msg) => {
     try {
       const covidData = await covidApi.getReportsByCountries(text);
       const countryData = covidData[0][0];
-      const country = name(code(countryData.country));
+      const country = name(code(countryData.country))||"";
       const formatData = `
-            Country: ${country} ${flag(countryData.country)}
+            Country: ${country} ${flag(countryData.country||"")}
             Cases: ${numberWithCommas(countryData.cases)}
             Deaths: ${numberWithCommas(countryData.deaths)}
             Cured: ${numberWithCommas(countryData.recovered)}`;
