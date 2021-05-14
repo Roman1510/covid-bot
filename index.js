@@ -46,12 +46,12 @@ bot.on("message", async (msg) => {
     try {
       const covidData = await covidApi.getReportsByCountries(text);
       const countryData = covidData[0][0];
+      const countryName = countryData.country;
       const formatData = `
-            Country: ${countryData.country}
+            Country: ${countryName.charAt(0).toUpperCase()+countryName.slice(1)} ${flag(countryName)}
             Cases: ${numberWithCommas(countryData.cases)}
             Deaths: ${numberWithCommas(countryData.deaths)}
-            Cured: ${numberWithCommas(countryData.recovered)}
-            ${flag(countryData.country)}`;
+            Cured: ${numberWithCommas(countryData.recovered)}`;
       await bot.sendMessage(chatId, formatData)  
     } catch(e) {
       await bot.sendMessage(chatId, "This country doesn't exist, please try again")  
