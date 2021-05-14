@@ -5,6 +5,7 @@ const covidApi = require("covid19-api");
 const express = require("express");
 const PORT = process.env.PORT || 3000;
 const app = express();
+const {flag, code, name, countries} = require('country-emoji');
 //just have to implement the flags emoji, and the bot is complete
 
 //this is just the code to keep the server alive
@@ -46,7 +47,7 @@ bot.on("message", async (msg) => {
       const covidData = await covidApi.getReportsByCountries(text);
       const countryData = covidData[0][0];
       const formatData = `
-            Country: ${countryData.country},
+            Country: ${countryData.country}
             Cases: ${numberWithCommas(countryData.cases)}
             Deaths: ${numberWithCommas(countryData.deaths)}
             Cured: ${numberWithCommas(countryData.recovered)}

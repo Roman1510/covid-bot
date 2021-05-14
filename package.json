@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Roman1510/currency-bot#readme",
   "dependencies": {
+    "country-emoji": "^1.5.6",
     "covid19-api": "1.2.1",
     "dotenv": "^9.0.1",
     "express": "^4.17.1",
