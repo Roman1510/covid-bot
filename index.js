@@ -51,7 +51,7 @@ bot.on("message", async (msg) => {
             Cases: ${numberWithCommas(countryData.cases)}
             Deaths: ${numberWithCommas(countryData.deaths)}
             Cured: ${numberWithCommas(countryData.recovered)}
-            ${countryData.flag}`;
+            ${flag(countryData.country)}`;
       await bot.sendMessage(chatId, formatData)  
     } catch(e) {
       await bot.sendMessage(chatId, "This country doesn't exist, please try again")  
