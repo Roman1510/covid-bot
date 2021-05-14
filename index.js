@@ -45,10 +45,9 @@ bot.on("message", async (msg) => {
   if (text!=="/start"&&text!="/info") { //if text is not a command, this is a country
     try {
       const covidData = await covidApi.getReportsByCountries(text);
-      const countryData = covidData[0][0];
-      const countryName = countryData.country;
+      const countryData = covidData[0][0]; // below is just example of the name,code,flag library
       const formatData = `
-            Country: ${countryName.charAt(0).toUpperCase()+countryName.slice(1)} ${flag(countryName)}
+            Country: ${name(code(countryName.country))} ${flag(code(countryName.country))} 
             Cases: ${numberWithCommas(countryData.cases)}
             Deaths: ${numberWithCommas(countryData.deaths)}
             Cured: ${numberWithCommas(countryData.recovered)}`;
